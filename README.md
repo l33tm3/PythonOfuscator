@@ -1,12 +1,19 @@
-# PythonOfuscator
-Python coder ofuscator
+# Ejecutor de Shellcode en Python para Windows
 
+## Descripción
 
+Este proyecto es un script de Python diseñado para cargar y ejecutar shellcode desde un archivo binario en un entorno de Windows. Utiliza la biblioteca `ctypes` para interactuar directamente con la API de Windows, lo que le permite asignar memoria ejecutable, copiar el shellcode y ejecutarlo en un nuevo hilo.
 
+Este script es una herramienta útil para investigadores de seguridad, pentesters y desarrolladores que necesitan una forma rápida y sencilla de probar shellcode en un entorno controlado.
 
-# Ejecución de Shellcode en Python
+## Características
 
-Este proyecto es un script en Python que carga y ejecuta shellcode binario desde un archivo en un entorno Windows utilizando la biblioteca `ctypes`.
+- **Carga de Shellcode**: Carga shellcode desde un archivo binario especificado.
+- **Ejecución Segura**: Utiliza funciones de la API de Windows (`VirtualAlloc`, `CreateThread`) para una ejecución robusta.
+- **Compatibilidad**: Funciona en versiones de 32 y 64 bits de Windows gracias al uso de tipos de datos correctos en `ctypes`.
+- **Comprobación del SO**: Verifica que el script se esté ejecutando en Windows para evitar errores en otros sistemas operativos.
+- **Manejo de Errores**: Incluye un manejo de errores claro para fallos en la asignación de memoria o creación de hilos.
+- **Uso Sencillo**: Interfaz de línea de comandos simple para una fácil ejecución.
 
 ## Requisitos
 
@@ -15,31 +22,24 @@ Este proyecto es un script en Python que carga y ejecuta shellcode binario desde
 
 ## Uso
 
-1. Clona este repositorio o descarga el código fuente.
+1.  Clona este repositorio o descarga el código fuente.
+2.  Asegúrate de tener Python 3.x instalado en tu sistema.
+3.  Ejecuta el script desde la línea de comandos, proporcionando la ruta al archivo de shellcode que deseas ejecutar.
 
-2. Asegúrate de tener Python 3.x instalado en tu sistema.
+    ```bash
+    python shellcode_executor.py -i ruta/al/shellcode.bin
+    ```
 
-3. Ejecuta el script proporcionando el archivo de shellcode binario como argumento:
+    Reemplaza `ruta/al/shellcode.bin` con la ruta real de tu archivo.
 
-   ```bash
-   python shellcode_executor.py -i path/to/shellcode.bin
+## ⚠️ Advertencia de Seguridad
 
-
-Reemplaza path/to/shellcode.bin con la ruta al archivo de shellcode que deseas ejecutar.
-
-## Nota: Ten en cuenta que la ejecución de shellcode puede ser riesgosa y debe hacerse con precaución. Asegúrate de entender la fuente y el propósito del shellcode antes de ejecutarlo.
-
-## Mejoras realizadas en el código
-Ten en cuenta que ejecutar shellcode puede ser riesgoso y potencialmente peligroso. Asegúrate de comprender completamente la fuente y el propósito del shellcode antes de ejecutarlo.
-
-Este código ha sido probado en un entorno Windows con Python 3.x, pero ten en cuenta que puede haber diferencias y comportamientos inesperados en diferentes configuraciones
+La ejecución de shellcode es inherentemente peligrosa y solo debe realizarse con código de fuentes confiables y con fines de investigación o pruebas autorizadas. Ejecutar shellcode desconocido o malicioso puede comprometer la seguridad de tu sistema. **Úsalo con extrema precaución.**
 
 ## Contribuciones
-Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, envía un pull request y lo revisaremos juntos.
+
+Las contribuciones son bienvenidas. Si tienes ideas para mejorar este proyecto, no dudes en abrir un *issue* o enviar un *pull request*.
 
 ## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo {LICENSE} para obtener más detalles.
 
-
-
-Este `README.md` proporciona una descripción general del proyecto, los requisitos, el uso, las mejoras realizadas en el código y algunas notas adicionales importantes. Además, incluye secciones para contribuciones y la licencia bajo la cual se distribuye el proyecto. Puedes personalizarlo según tus necesidades específicas y agregar más información si es necesario. Recuerda también incluir el archivo `LICENSE` con la licencia que deseas utilizar para el proyecto.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para obtener más detalles.
